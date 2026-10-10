@@ -1,0 +1,49 @@
+main  {
+  background-color: green;
+  height: 90vh;
+  padding-top: 15px;
+}
+.nav {
+  background-color: red;
+  height: 4vh;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  margin-right: 15px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#home-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  width: 95vw;
+}
+
+.nav-buttons {
+  display: flex;
+  background-color: cyan;
+  height: 100%;
+  align-items: center;
+  margin-left: auto;
+}
+
+button {
+  margin: 10px;
+}
+
+
+
+footer {
+  background-color: yellow;
+  height: 20vh;
+}
