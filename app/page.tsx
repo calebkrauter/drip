@@ -1,20 +1,26 @@
+import { Hero } from './components/Hero';
+import { ProfileImage } from './components/ProfileImage';
+
 export default function Home() {
   return (
-    <div>
-      <main>
-        <nav className='nav'>
-          <div className='nav-button-container'>
-            <button id='home-button'>Caleb Krauter</button>
-            <div className='nav-buttons'>
-              <button>Introduction</button>
-              <button>Projects</button>
-              <button>Experience</button>
-              <button>Education</button>
-            </div>
+    <body>
+      <nav className='nav'>
+        <div className='nav-button-container'>
+          <button id='home-button'>Caleb Krauter</button>
+          <div className='nav-buttons'>
+            <button>Introduction</button>
+            <button>Projects</button>
+            <button>Experience</button>
+            <button>Education</button>
           </div>
-        </nav>
+        </div>
+      </nav>
+      <main>
+        <Hero>
+          <ProfileImage />
+        </Hero>
       </main>
       <footer></footer>
-    </div>
+    </body>
   );
 }
