@@ -1,3 +1,4 @@
+import { Card } from './components/Card';
 import { Hero } from './components/Hero';
 import { ProfileImage } from './components/ProfileImage';
 
@@ -16,9 +17,24 @@ export default function Home() {
         </div>
       </nav>
       <main>
-        <Hero>
-          <ProfileImage />
-        </Hero>
+        <div className='hero-space'>
+          <Hero>
+            <ProfileImage />
+          </Hero>
+        </div>
+
+        <div className='body-space-frame'>
+          <div className='body-space-left-column' />
+          <div className='body-space'>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+          <div className='side-nav'>Nav Placeholder</div>
+        </div>
       </main>
       <footer></footer>
     </body>
