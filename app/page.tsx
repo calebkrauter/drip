@@ -1,6 +1,7 @@
 import { Card } from './components/Card';
 import { Hero } from './components/Hero';
 import { ProfileImage } from './components/ProfileImage';
+import { Section } from './components/Section';
 
 export default function Home() {
   return (
@@ -26,10 +27,13 @@ export default function Home() {
         <div className='body-space-frame'>
           <div className='body-space-left-column' />
           <div className='body-space'>
+            <Section />
             <Card />
             <Card />
+            <Section />
             <Card />
             <Card />
+            <Section />
             <Card />
             <Card />
           </div>
