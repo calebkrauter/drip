@@ -2,13 +2,14 @@ import { Card } from './components/Card';
 import { Hero } from './components/Hero';
 import { ProfileImage } from './components/ProfileImage';
 import { Section } from './components/Section';
+import { SideNav } from './components/SideNav';
 
 export default function Home() {
   return (
     <body>
+      <button id='home-button'>Caleb Krauter</button>
       <nav className='nav'>
         <div className='nav-button-container'>
-          <button id='home-button'>Caleb Krauter</button>
           <div className='nav-buttons'>
             <button>Introduction</button>
             <button>Projects</button>
@@ -37,7 +38,7 @@ export default function Home() {
             <Card />
             <Card />
           </div>
-          <div className='side-nav'>Nav Placeholder</div>
+          <SideNav />
         </div>
       </main>
       <footer></footer>
