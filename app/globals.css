@@ -1,17 +1,71 @@
 :root {
-  --main-color: rgb(25, 27, 38);
-  --nav-color: rgba(79, 80, 81, 0.38);
+  --main-color: rgb(24, 24, 24);
+  --nav-color: rgba(34, 34, 34, 0.538);
   --card-color: rgba(39, 41, 43, 0.516);
+  --invisible: rgba(255, 255, 255, 0);
 
-  --primary-font-color: rgb(206, 205, 204);
+  --primary-font-color: rgb(238, 238, 238);
+  --description-font-color: rgb(201, 201, 200);
   --secondary-font-color: rgba(39, 41, 43, 0.516);
   --thid-font-color: rgba(39, 41, 43, 0.516);
+  --sub-header-color-1: rgb(211, 208, 180);
+  --sub-header-color-2: rgb(116, 116, 116);
+  --button-font-color: rgb(255, 250, 225);
+}
 
+button {
+  background-color: var(--invisible);
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(126, 126, 126, 0.773);
+  border-radius: 1px;
+  height: 35px;
+  color: var(--button-font-color);
+  font-family: var(--font-geist-sans);
+  margin: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: var(--font-geist-pixel);
 
 }
 
+button:hover {
+  background-color: var(--button-font-color);
+  color: var(--nav-color);
+  transition: all 0.25s ease-in-out;
+  border-radius: 10px;
+}
+
+.bounce {
+  animation: bounce 300ms ease 1;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.squish {
+  animation: squish 300ms ease 1;
+
+}
+
+@keyframes squish {
+  50% {
+    transform: scaleX(.9);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+  
+}
 body {
-  background-color: var(--main-color)
+  background-color: var(--main-color);
+  font-family: var(--font-geist-sans);
+  
+  display: flex;
+  position: relative;
 }
 
 main {
@@ -37,13 +91,29 @@ body {
 }
 .nav {
   background-color: var(--nav-color);
-  height: 4vh;
-  border-radius: 10px;
-  margin-right: 15px;
-  margin-left: 15px;
+  height: 70px;
   display: flex;
+  border: 0px;
+  border-bottom: 1px;
+  border-color: rgba(58, 58, 58, 0.437);
+  border-style: solid;
   justify-content: center;
+  align-items: center;
   z-index: 99;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+.nav-line-1 {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 35%),
+    rgb(150 150 150 / 20%),
+    rgb(255 255 255 / 10%)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .side-nav-dot-frame {
@@ -88,8 +158,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: fixed;
+  justify-content: center;
   margin-left: 45px;
+  border-radius: 100px;
+  width: 60px;
+  z-index: 99;
+  transition: all 300ms ease-in-out;
+
 }
 
 .nav-button-container {
@@ -97,6 +172,7 @@ body {
   flex-direction: row;
   align-items: center;
   width: 95vw;
+  margin-right: 45px;
 }
 
 .nav-buttons {
@@ -106,9 +182,7 @@ body {
   margin-left: auto;
 }
 
-button {
-  margin: 10px;
-}
+
 
 .profile-image-frame-block {
   background-color: var(--main-color);
@@ -129,6 +203,8 @@ button {
 
 .profile-image {
   object-fit: cover;
+  border-radius: 2px;
+
 }
 
 .hero {
@@ -141,10 +217,10 @@ button {
 .hero-summary {
   max-width: 700px;
   margin-left: 10vw;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.5;
   color: var(--primary-font-color);
-  font-family:'Times New Roman', Times, serif, 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .body-space {
@@ -182,7 +258,12 @@ button {
   margin-top: 50px;
   min-width: 500px;
   width: 1000px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-geist-pixel);
+  scroll-margin-top: 100px;
+}
+
+.section-line {
+  color: rgba(87, 87, 87, 0.434);
 }
 
 .card {
@@ -190,35 +271,42 @@ button {
   width: 1000px;
   max-width: 1000px;
   min-height: 200px;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: var(--card-color);
   margin: 50px;
   margin-right: auto;
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  font-family: 'Courier New', Courier, monospace;
   position: relative;
   overflow: hidden;
+  padding: 20px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(66, 66, 66, 0.773);
+  border-radius: 2px;
 }
 
 .card-header {
-  color: var(--primary-font-color);
+  color: var(--sub-header-color-1);
   height: 30px;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
   align-items: center;
+  font-family: var(--font-geist-pixel);
 }
 
 .card-date {
   margin-left: auto;
+  color: var(--sub-header-color-2);
+  font-family: var(--font-geist-pixel);
 
 }
 
 .card-description {
-  color: var(--primary-font-color);
+  color: var(--description-font-color);
   line-height: 1.5;
   padding: 10px;
   margin-bottom: 50px;
@@ -227,18 +315,17 @@ button {
 .pills-block {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
+  column-gap: 15px;
   flex-direction: row;
 }
 
 .pill {
-  background-color: rgba(145, 28, 217, 0.858);
+  background-color: rgba(181, 78, 244, 0.331);
   opacity: 70%;
-  min-width: 60px;
-  min-height: 20px;
+  min-width: 20px;
+  min-height: 25px;
   height: 20px;
   border-radius: 15px;
-  padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   align-items: center;
@@ -247,9 +334,11 @@ button {
   text-justify: center;
   color: white;
   bottom: 0;
-  margin-left: 10px;
   margin-bottom: 10px;
   display: flex;
+  font-size: small;
+  font-family: var(--font-geist-pixel);
+
 }
 
 

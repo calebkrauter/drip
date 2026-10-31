@@ -1,8 +1,13 @@
-export function Section() {
+interface Props {
+  name: string;
+  id: string;
+}
+
+export function Section({ name, id }: Props) {
   return (
-    <div className='section'>
-      <div>Experience</div>
-      <hr></hr>
+    <div className='section' id={id}>
+      <div>{name}</div>
+      <hr className='section-line'></hr>
     </div>
   );
 }
