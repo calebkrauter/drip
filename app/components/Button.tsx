@@ -1,31 +1,30 @@
 import { useState } from 'react';
+import { scollNav } from '../hooks/scrollNav';
 
 interface Props {
   name: string;
   id?: string;
   targetId?: string;
+  className?: string;
 }
 
-export function scollNav(targetId: string) {
-  if (targetId === '' || targetId === 'introduction')
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  document.getElementById(targetId)?.scrollIntoView({
-    behavior: 'smooth',
-  });
-}
-
-export function Button({ name, id = '', targetId = '' }: Props) {
+export function Button({
+  name,
+  id = '',
+  targetId = 'home-button',
+  className = '',
+}: Props) {
   const [buttonPressed, setButtonPressed] = useState(false);
 
   return (
     <button
       id={id}
       className={
-        buttonPressed && id === 'home-button'
-          ? 'squish'
-          : buttonPressed && id === ''
-            ? 'bounce'
-            : ''
+        buttonPressed && id === 'ck-home-button'
+          ? 'squish className'
+          : buttonPressed
+            ? 'bounce className'
+            : 'className'
       }
       onClick={(e) => {
         e.stopPropagation();

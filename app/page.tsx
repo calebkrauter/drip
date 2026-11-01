@@ -2,53 +2,101 @@
 import { Hero } from './components/Hero';
 import { ProfileImage } from './components/ProfileImage';
 import { Section } from './components/Section';
-import { Button, scollNav } from './components/Button';
 import { ProjectCards } from './components/ProjectCards';
 import { ExperienceCards } from './components/ExperienceCards';
-
 import { experiences, projects, education } from './lib/content';
 import { EducationCards } from './components/EducationCards';
+import { Nav } from './components/Nav';
+import { NavMobile } from './components/NavMobile';
+import { useEffect } from 'react';
+import { Button } from './components/Button';
 
 export default function Home() {
+  useEffect(() => {
+    const homeElementId = document.getElementById('home')!;
+    const experienceElementId = document.getElementById('experience')!;
+    const projectsElementId = document.getElementById('projects')!;
+    const educationElementId = document.getElementById('education')!;
+
+    const homeButtonMobile = document.getElementById('home-mobile-button')!;
+    const experienceButtonMobile = document.getElementById(
+      'experience-mobile-button',
+    )!;
+    const projectsButtonMobile = document.getElementById(
+      'projects-mobile-button',
+    )!;
+    const educationButtonMobile = document.getElementById(
+      'education-mobile-button',
+    )!;
+
+    const homeButton = document.getElementById('home-button')!;
+    const experienceButton = document.getElementById('experience-button')!;
+    const projectsButton = document.getElementById('projects-button')!;
+    const educationButton = document.getElementById('education-button')!;
+
+    const sections = [
+      homeElementId,
+      experienceElementId,
+      projectsElementId,
+      educationElementId,
+    ];
+    const sectionButtonsMobile = [
+      homeButtonMobile,
+      experienceButtonMobile,
+      projectsButtonMobile,
+      educationButtonMobile,
+    ];
+
+    const sectionButtons = [
+      homeButton,
+      experienceButton,
+      projectsButton,
+      educationButton,
+    ];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const i = sections.indexOf(entry.target as HTMLElement);
+        if (entry.isIntersecting) {
+          sectionButtonsMobile[i].classList.add(`on-nav`);
+          sectionButtons[i].classList.add(`on-nav`);
+          sectionButtons[i].focus();
+        } else {
+          sectionButtonsMobile[i].classList.remove(`on-nav`);
+          sectionButtons[i].classList.remove(`on-nav`);
+        }
+      });
+    });
+
+    sections.forEach((element) => {
+      observer.observe(element);
+    });
+    return () => observer.disconnect();
+  }, []);
   return (
-    <body>
-      <nav
-        className='nav'
-        onClick={() => {
-          scollNav('');
-        }}
-      >
-        <Button name='CK' id='home-button' />
-        <div className='nav-line-1'></div>
-        <div className='nav-button-container'>
-          <div className='nav-buttons'>
-            <Button name='Introduction' />
-            <Button name='Projects' targetId='projects' />
-            <Button name='Experience' targetId='experience' />
-            <Button name='Education' targetId='education' />
-          </div>
-        </div>
-      </nav>
+    <div>
+      <Nav />
+      <div id='home'></div>
       <main>
         <div className='hero-space'>
           <Hero>
             <ProfileImage />
           </Hero>
         </div>
-
         <div className='body-space-frame'>
           <div className='body-space-left-column' />
           <div className='body-space'>
-            <Section name='Projects' id='projects' />
-            <ExperienceCards content={experiences} />
             <Section name='Experience' id='experience' />
+            <ExperienceCards content={experiences} />
+            <Section name='Projects' id='projects' />
             <ProjectCards content={projects} />
             <Section name='Education' id='education' />
             <EducationCards content={education} />
           </div>
         </div>
       </main>
+      <NavMobile />
+
       <footer></footer>
-    </body>
+    </div>
   );
 }
