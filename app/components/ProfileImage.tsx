@@ -9,6 +9,7 @@ export function ProfileImage() {
           src={'/profile.png'}
           alt={'profile image'}
           fill
+          priority
         ></Image>
       </div>
     </div>

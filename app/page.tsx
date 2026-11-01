@@ -73,7 +73,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div>
+    <div className='screen'>
       <Nav />
       <div className='background-image-frame'>
         <Image
@@ -81,6 +81,7 @@ export default function Home() {
           src={'/background.png'}
           alt={'profile image'}
           fill
+          priority
         ></Image>
       </div>
       <div id='home'></div>

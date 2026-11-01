@@ -77,6 +77,27 @@ body {
   position: relative;
 }
 
+.screen::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  animation: onload 500ms ease-in-out forwards;
+}
+
+@keyframes onload {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: rgba(34, 34, 34, 0);
+  }
+  
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -205,14 +226,19 @@ body {
 @keyframes blur-profile-image {
   0% {
     filter: blur(10px);
+    box-shadow: 0 0 150px 150px rgba(40, 40, 40, 0.1);
+    border-radius: 100px;
+
   }
   100% {
     filter: blur(0px);
+    box-shadow: 0 0 15px 15px rgba(40, 40, 40, 0.1);
   }
 }
 
 .background-image-frame {
   width: 100vw;
+  height: 100vh;
   position: relative;
   aspect-ratio: 16 / 9;
   position: absolute;
