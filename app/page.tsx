@@ -1,10 +1,13 @@
 'use client';
-import { Card } from './components/Card';
 import { Hero } from './components/Hero';
 import { ProfileImage } from './components/ProfileImage';
 import { Section } from './components/Section';
-import { SideNav } from './components/SideNav';
 import { Button, scollNav } from './components/Button';
+import { ProjectCards } from './components/ProjectCards';
+import { ExperienceCards } from './components/ExperienceCards';
+
+import { experiences, projects, education } from './lib/content';
+import { EducationCards } from './components/EducationCards';
 
 export default function Home() {
   return (
@@ -37,16 +40,12 @@ export default function Home() {
           <div className='body-space-left-column' />
           <div className='body-space'>
             <Section name='Projects' id='projects' />
-            <Card />
-            <Card />
+            <ExperienceCards content={experiences} />
             <Section name='Experience' id='experience' />
-            <Card />
-            <Card />
+            <ProjectCards content={projects} />
             <Section name='Education' id='education' />
-            <Card />
-            <Card />
+            <EducationCards content={education} />
           </div>
-          {/* <SideNav /> */}
         </div>
       </main>
       <footer></footer>

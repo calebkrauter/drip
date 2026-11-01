@@ -26,7 +26,7 @@ button {
   padding-left: 20px;
   padding-right: 20px;
   font-family: var(--font-geist-pixel);
-
+  transition: all 100ms ease-in-out;
 }
 
 button:hover {
@@ -116,44 +116,6 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.side-nav-dot-frame {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.side-nav-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-  bottom: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-}
-
-#nav-dot-introduction-frame:hover #nav-dot-introduction {
-  background-color: rgb(252, 151, 88);
-  box-shadow: 0 0 25px rgb(255, 255, 255);
-}
-
-#nav-dot-projects-frame:hover #nav-dot-projects {
-  background-color: rgb(252, 151, 88);
-  box-shadow: 0 0 25px rgb(255, 255, 255);
-}
-
-#nav-dot-experience-frame:hover #nav-dot-experience {
-  background-color: rgb(252, 151, 88);
-  box-shadow: 0 0 25px rgb(255, 255, 255);
-}
-
-#nav-dot-education-frame:hover #nav-dot-education {
-  background-color: rgb(252, 151, 88);
-  box-shadow: 0 0 25px rgb(255, 255, 255);
-}
 #home-button {
   display: flex;
   flex-direction: row;
@@ -163,7 +125,11 @@ body {
   border-radius: 100px;
   width: 60px;
   z-index: 99;
-  transition: all 300ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+
+#home-button:hover {
+    transition: all 300ms ease-in-out;
 
 }
 
@@ -238,21 +204,6 @@ body {
   align-items: center;
 }
 
-.side-nav-space {
-  --nav-space-height: 400px;
-  background-color: var(--main-color);
-  width: 100%;
-  height: var(--nav-space-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  top: calc(50vh - var(--nav-space-height)/2);
-  align-self: start;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .section {
   color: var(--primary-font-color);
   margin-top: 50px;
@@ -320,7 +271,6 @@ body {
 }
 
 .pill {
-  background-color: rgba(181, 78, 244, 0.331);
   opacity: 70%;
   min-width: 20px;
   min-height: 25px;
@@ -338,7 +288,14 @@ body {
   display: flex;
   font-size: small;
   font-family: var(--font-geist-pixel);
+}
 
+.pill-skill {
+  background-color: rgba(255, 157, 0, 0.7);
+}
+
+.pill-technology {
+  background-color: rgb(158, 40, 231, 0.7);
 }
 
 
