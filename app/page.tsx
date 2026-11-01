@@ -9,7 +9,7 @@ import { EducationCards } from './components/EducationCards';
 import { Nav } from './components/Nav';
 import { NavMobile } from './components/NavMobile';
 import { useEffect } from 'react';
-import { Button } from './components/Button';
+import Image from 'next/image';
 
 export default function Home() {
   useEffect(() => {
@@ -75,6 +75,14 @@ export default function Home() {
   return (
     <div>
       <Nav />
+      <div className='background-image-frame'>
+        <Image
+          className='background-image'
+          src={'/background.png'}
+          alt={'profile image'}
+          fill
+        ></Image>
+      </div>
       <div id='home'></div>
       <main>
         <div className='hero-space'>
