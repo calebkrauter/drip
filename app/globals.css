@@ -258,7 +258,7 @@ body {
 
 
 .background-image {
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .profile-image {
@@ -297,25 +297,23 @@ body {
   color: var(--primary-font-color);
   animation: blur-hero-summary 2000ms ease-in-out both;
   z-index: 1;
+  padding: 20px;
 }
 
 @keyframes blur-hero-summary {
   0% {
     backdrop-filter: blur(0px);
     background-color: rgba(255, 255, 255, 0);
-    padding: 5px;
     border-radius: 100px;
   }
   25% {
     backdrop-filter: blur(2px);
     background-color: rgba(181, 181, 181, 0.2);
-    padding: 10px;
     border-radius: 50px;
   }
   100% {
     backdrop-filter: blur(2px);
     background-color: rgba(36, 36, 36, 0.294);
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 100px 100px rgba(68, 68, 68, 0.5), inset 0 0 100px 100px rgba(68, 68, 68, 0.5);
   }
